@@ -1,4 +1,5 @@
 enum AppRoute {
+  root(path: '/root'),
   intro(path: '/intro'),
   main(path: '/main');
 
