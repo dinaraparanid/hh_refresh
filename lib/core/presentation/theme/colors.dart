@@ -12,6 +12,7 @@ final class AppColors {
   final Color background;
   final Color text;
   final AppButtonColors button;
+  final AppIconColors icon;
 
   const AppColors({
     required this.secondary,
@@ -19,6 +20,7 @@ final class AppColors {
     required this.text,
     this.primary = _VenetianRed,
     this.button = const AppButtonColors(),
+    this.icon = const AppIconColors(),
   });
 
   factory AppColors.lightTheme() => AppColors(
@@ -42,5 +44,16 @@ final class AppButtonColors {
   const AppButtonColors({
     this.content = _Black,
     this.background = _Cultured,
+  });
+}
+
+@immutable
+final class AppIconColors {
+  final Color primary;
+  final Color secondary;
+
+  const AppIconColors({
+    this.primary = _White,
+    this.secondary = _Black,
   });
 }

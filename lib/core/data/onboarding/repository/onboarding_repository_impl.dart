@@ -10,4 +10,7 @@ final class OnboardingRepositoryImpl extends OnboardingRepository {
 
   @override
   Future<bool> get wasOnboardingOnceShown => _store.wasOnboardingOnceShown;
+
+  @override
+  Future<void> markOnboardingAsShown() => _store.markOnboardingAsShown();
 }

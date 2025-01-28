@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hh_refresh/feature/root/presentation/bloc/root_bloc.dart';
-import 'package:hh_refresh/feature/root/presentation/root_screen.dart';
+import 'package:hh_refresh/navigation/screens.dart';
 import 'package:hh_refresh/navigation/app_route.dart';
 
 final class AppRouter {
@@ -17,7 +16,7 @@ final class AppRouter {
       GoRoute(
         path: AppRoute.intro.path,
         name: AppRoute.intro.name,
-        builder: (context, state) => Text('TODO: Intro screen'),
+        builder: (context, state) => OnboardingScreen(bloc: state.extra as OnboardingBloc),
       ),
       GoRoute(
         path: AppRoute.main.path,

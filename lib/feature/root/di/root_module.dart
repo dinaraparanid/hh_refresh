@@ -9,7 +9,11 @@ extension RootModule on GetIt {
       InitialScreenUseCase(repository: this()),
     ),
     provideSingleton<RootBlocFactory>(() =>
-      RootBlocFactory(router: this(), initialScreenUseCase: this()),
+      RootBlocFactory(
+        router: this(),
+        initialScreenUseCase: this(),
+        onboardingBlocFactory: this(),
+      ),
     ),
   ];
 }

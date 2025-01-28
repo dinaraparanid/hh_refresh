@@ -10,4 +10,10 @@ final class OnboardingStoreImpl with OnboardingStore {
       .getInstance()
       .getBool(_keyOnboardingShown)
       .then((v) => v ?? false);
+
+  @override
+  Future<void> markOnboardingAsShown() =>
+    RxSharedPreferences
+      .getInstance()
+      .setBool(_keyOnboardingShown, true);
 }
