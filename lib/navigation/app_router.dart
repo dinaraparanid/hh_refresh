@@ -5,7 +5,7 @@ import 'package:hh_refresh/navigation/screens.dart';
 import 'package:hh_refresh/navigation/app_route.dart';
 
 final class AppRouter {
-  late final router = GoRouter(
+  late final value = GoRouter(
     initialLocation: AppRoute.root.path,
     routes: [
       GoRoute(
@@ -19,10 +19,20 @@ final class AppRouter {
         builder: (context, state) => OnboardingScreen(bloc: state.extra as OnboardingBloc),
       ),
       GoRoute(
+        path: AppRoute.intro1.path,
+        name: AppRoute.intro1.name,
+        builder: (context, state) => OnboardingScene1(bloc: state.extra as OnboardingScene1Bloc),
+      ),
+      GoRoute(
+        path: AppRoute.intro2.path,
+        name: AppRoute.intro2.name,
+        builder: (context, state) => OnboardingScene2(bloc: state.extra as OnboardingScene2Bloc),
+      ),
+      GoRoute(
         path: AppRoute.main.path,
         name: AppRoute.main.name,
         builder: (context, state) => Text('TODO: Main screen'),
       ),
-    ]
+    ],
   );
 }

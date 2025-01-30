@@ -1,7 +1,10 @@
 {
   "app_name": "hh.refresh",
   "begin": "Begin",
+  "continue_": "Continue",
 
-  "onboarding_title": "Welcome to hh.refresh!",
-  "onboarding_description": "This app helps to promote your CV by reminding you to bring it up in the search"
+  "onboarding_scene_1_title": "Welcome to hh.refresh!",
+  "onboarding_scene_1_description": "This app helps to promote your CV by reminding you to bring it up in the search",
+  "onboarding_scene_2_title": "Start to promote your CV",
+  "onboarding_scene_2_description": "The app will start a timer, after which you will receive a notification"
 }

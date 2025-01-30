@@ -3,8 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hh_refresh/core/presentation/theme/mod.dart';
 import 'package:hh_refresh/core/presentation/theme/theme_provider.dart';
 
-final class ClockIcon extends StatelessWidget {
-  const ClockIcon({super.key});
+final class OnboardingIcon extends StatelessWidget {
+  final String svgIconName;
+  const OnboardingIcon({super.key, required this.svgIconName});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ final class ClockIcon extends StatelessWidget {
         alignment: Alignment.center,
         child: Wrap(children: [
           SvgPicture.asset(
-            AppImages.loadSvg('ic_duration').value,
+            AppImages.loadSvg(svgIconName).value,
             width: theme.dimensions.size.medium,
             height: theme.dimensions.size.medium,
             colorFilter: ColorFilter.mode(

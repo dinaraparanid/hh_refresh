@@ -27,7 +27,7 @@ final class App extends StatelessWidget {
       child: BlocProvider(
         create: (_) => rootBlocFactory.create(),
         child: MaterialApp.router(
-          routerConfig: router.router,
+          routerConfig: router.value,
           color: theme.colors.background,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,

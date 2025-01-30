@@ -17,12 +17,12 @@ final class RootBloc extends Bloc<RootEvent, void> {
     super(null) {
     on<NavigateToOnboarding>((event, emit) {
       final bloc = _createOnboardingBloc();
-      router.router.replaceNamed(AppRoute.intro.name, extra: bloc);
+      router.value.replaceNamed(AppRoute.intro.name, extra: bloc);
     });
 
     on<NavigateToMain>((event, emit) =>
       // TODO: фабрика фрагмента
-      router.router.replaceNamed(AppRoute.main.name),
+      router.value.replaceNamed(AppRoute.main.name),
     );
 
     initialScreenUseCase
@@ -34,6 +34,6 @@ final class RootBloc extends Bloc<RootEvent, void> {
   }
 
   OnboardingBloc _createOnboardingBloc() => _onboardingBlocFactory.create(
-    onOnboardingFinished: () => add(NavigateToMain()),
+    onDone: () => add(NavigateToMain()),
   );
 }

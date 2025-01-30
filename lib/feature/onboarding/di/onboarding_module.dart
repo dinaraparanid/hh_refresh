@@ -1,17 +1,18 @@
 import 'package:get_it/get_it.dart';
 import 'package:hh_refresh/core/di/provide_singleton.dart';
-import 'package:hh_refresh/feature/onboarding/domain/mark_intro_as_seen_use_case.dart';
+import 'package:hh_refresh/feature/onboarding/child/scene1/di/onboarding_scene_1_module.dart';
+import 'package:hh_refresh/feature/onboarding/child/scene2/di/onboarding_scene_2_module.dart';
 import 'package:hh_refresh/feature/onboarding/presentation/bloc/onboarding_bloc_factory.dart';
 
 extension OnboardingModule on GetIt {
   List<Type> registerOnboardingModule() => [
-    provideSingleton<MarkIntroAsSeenUseCase>(() =>
-      MarkIntroAsSeenUseCase(repository: this()),
-    ),
+    ...registerOnboardingScene1Module(),
+    ...registerOnboardingScene2Module(),
     provideSingleton<OnboardingBlocFactory>(() =>
       OnboardingBlocFactory(
         router: this(),
-        markIntroAsSeenUseCase: this(),
+        scene1blocFactory: this(),
+        scene2blocFactory: this(),
       ),
     ),
   ];
