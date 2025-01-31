@@ -2,9 +2,14 @@
   "app_name": "hh.refresh",
   "begin": "Начать",
   "continue_": "Продолжить",
+  "allow": "Разрешить",
+  "deny": "Нет, спасибо",
 
   "onboarding_scene_1_title": "Добро пожаловать в hh.refresh!",
   "onboarding_scene_1_description": "Это приложение помогает продвигать ваше резюме, напоминая, что срок подъема в поиске истек",
   "onboarding_scene_2_title": "Начните поднимать свое резюме",
-  "onboarding_scene_2_description": "Приложение запустит таймер, по истечению которого вам придет уведомление"
+  "onboarding_scene_2_description": "Приложение запустит таймер, по истечению которого вам придет уведомление",
+
+  "notifications_denied_dialog_title": "Уведомления",
+  "notifications_denied_dialog_description": "Разрешите использовать уведомления, чтобы приложение вовремя напоминало вам поднимать резюме"
 }
