@@ -11,5 +11,9 @@
   "onboarding_scene_2_description": "Приложение запустит таймер, по истечению которого вам придет уведомление",
 
   "notifications_denied_dialog_title": "Уведомления",
-  "notifications_denied_dialog_description": "Разрешите использовать уведомления, чтобы приложение вовремя напоминало вам поднимать резюме"
+  "notifications_denied_dialog_description": "Разрешите использовать уведомления, чтобы приложение вовремя напоминало вам поднимать резюме",
+
+  "main_open": "Перейти",
+  "main_stop": "Остановить",
+  "main_restart_timer": "Перезапустить таймер"
 }

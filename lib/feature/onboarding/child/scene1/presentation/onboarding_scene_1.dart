@@ -26,7 +26,7 @@ final class OnboardingScene1 extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                OnboardingIcon(svgIconName: 'ic_duration'),
+                OnboardingIcon(svgIconName: 'ic_clock'),
 
                 SizedBox(height: theme.dimensions.padding.extraMedium),
 

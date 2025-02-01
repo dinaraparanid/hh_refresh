@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hh_refresh/feature/main/presentation/bloc/main_bloc.dart';
+import 'package:hh_refresh/feature/main/presentation/main_screen.dart';
 import 'package:hh_refresh/navigation/screens.dart';
 import 'package:hh_refresh/navigation/app_route.dart';
 
@@ -31,7 +33,7 @@ final class AppRouter {
       GoRoute(
         path: AppRoute.main.path,
         name: AppRoute.main.name,
-        builder: (context, state) => Text('TODO: Main screen'),
+        builder: (context, state) => MainScreen(bloc: state.extra as MainBloc),
       ),
     ],
   );

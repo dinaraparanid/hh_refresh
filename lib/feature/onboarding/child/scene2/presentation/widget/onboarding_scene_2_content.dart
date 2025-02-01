@@ -57,7 +57,7 @@ final class OnboardingScene2Content extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      AppImages.loadSvg('ic_duration').value,
+                      AppImages.loadSvg('ic_clock').value,
                       width: theme.dimensions.size.small,
                       height: theme.dimensions.size.small,
                       colorFilter: ColorFilter.mode(

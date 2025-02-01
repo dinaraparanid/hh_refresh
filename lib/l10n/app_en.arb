@@ -11,5 +11,9 @@
   "onboarding_scene_2_description": "The app will start a timer, after which you will receive a notification",
 
   "notifications_denied_dialog_title": "Notifications",
-  "notifications_denied_dialog_description": "Allow notifications to be used so that the app reminds you to bring up your resume at the same time."
+  "notifications_denied_dialog_description": "Allow notifications to be used so that the app reminds you to bring up your resume at the same time.",
+
+  "main_open": "Open",
+  "main_stop": "Stop",
+  "main_restart_timer": "Restart timer"
 }
