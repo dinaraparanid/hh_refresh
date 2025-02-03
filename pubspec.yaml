@@ -26,6 +26,7 @@ dependencies:
   rx_shared_preferences: ^4.0.0
   flutter_local_notifications: ^18.0.1
   permission_handler: ^11.3.1
+  flutter_animate: ^4.5.2
 
 dev_dependencies:
   flutter_test:

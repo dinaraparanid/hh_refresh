@@ -15,5 +15,7 @@
 
   "main_open": "Open",
   "main_stop": "Stop",
-  "main_restart_timer": "Restart timer"
+  "main_restart_timer": "Restart timer",
+  "main_until_timeout": "Until timeout",
+  "main_time_is_up": "Time is up"
 }

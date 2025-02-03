@@ -15,5 +15,7 @@
 
   "main_open": "Перейти",
   "main_stop": "Остановить",
-  "main_restart_timer": "Перезапустить таймер"
+  "main_restart_timer": "Перезапустить таймер",
+  "main_until_timeout": "До следующего подъема",
+  "main_time_is_up": "Время вышло"
 }

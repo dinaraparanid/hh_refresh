@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hh_refresh/core/presentation/foundation/app_filled_button.dart';
 import 'package:hh_refresh/core/presentation/theme/mod.dart';
 import 'package:hh_refresh/core/presentation/theme/theme_provider.dart';
 import 'package:hh_refresh/core/utils/extensions/bool_ext.dart';
 import 'package:hh_refresh/core/utils/functions/produce_if.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/mod.dart';
+import 'package:hh_refresh/feature/main/presentation/widget/clock/clock.dart';
 import 'package:hh_refresh/feature/main/presentation/widget/main_button.dart';
 
 final class MainContent extends StatelessWidget {
@@ -24,6 +23,10 @@ final class MainContent extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Clock(),
+
+            SizedBox(height: theme.dimensions.padding.extraMedium),
+
             MainButton(
               iconSvg: 'ic_web',
               text: strings.main_open,
