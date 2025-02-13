@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hh_refresh/core/presentation/theme/mod.dart';
 import 'package:hh_refresh/core/presentation/theme/theme_provider.dart';
 import 'package:hh_refresh/di/app_module.dart';
 import 'package:hh_refresh/feature/root/presentation/bloc/root_bloc_factory.dart';
+import 'package:hh_refresh/l10n/app_localizations.dart';
 import 'package:hh_refresh/navigation/app_router.dart';
 
 final class App extends StatelessWidget {

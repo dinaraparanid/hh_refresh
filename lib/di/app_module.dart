@@ -5,15 +5,19 @@ import 'package:hh_refresh/feature/main/di/main_module.dart';
 import 'package:hh_refresh/feature/onboarding/di/onboarding_module.dart';
 import 'package:hh_refresh/feature/root/di/root_module.dart';
 import 'package:hh_refresh/navigation/app_router.dart';
+import 'package:hh_refresh/platform/di/platform_module.dart';
 
 final di = GetIt.instance;
 
 extension AppModule on GetIt {
-  List<Type> registerAppModule() => [
-    ...registerCoreModule(),
-    ...registerRootModule(),
-    ...registerOnboardingModule(),
-    ...registerMainModule(),
-    provideSingleton<AppRouter>(() => AppRouter()),
-  ];
+  List<Type> registerAppModule() {
+    registerPlatformModule(); // platform-specific, not tested via unit test
+    return [
+      ...registerCoreModule(),
+      ...registerRootModule(),
+      ...registerOnboardingModule(),
+      ...registerMainModule(),
+      provideSingleton<AppRouter>(() => AppRouter()),
+    ];
+  }
 }

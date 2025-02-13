@@ -17,5 +17,7 @@
   "main_stop": "Остановить",
   "main_restart_timer": "Перезапустить таймер",
   "main_until_timeout": "До следующего подъема",
-  "main_time_is_up": "Время вышло"
+  "main_time_is_up": "Время вышло",
+
+  "notification_cv_title": "Поднимите ваше резюме"
 }

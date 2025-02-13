@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hh_refresh/core/utils/extensions/bool_ext.dart';
 import 'package:hh_refresh/core/utils/extensions/duration_ext.dart';
-import 'package:hh_refresh/feature/main/presentation/widget/clock/clock_config.dart';
+import 'package:hh_refresh/platform/work_manager/cv_work_manager.dart';
 
 part 'main_state.freezed.dart';
 
@@ -25,7 +25,7 @@ extension Properties on MainState {
   double get timerProgress {
     final next = nextTimestamp;
     final current = currentTimestamp;
-    final fullDurationMs = ClockConfig.fullDuration.inMilliseconds;
+    final fullDurationMs = CVWorkManager.fullDuration.inMilliseconds;
 
     if (next == null || current == null || current >= next) return 1;
     return (fullDurationMs - next + current) / fullDurationMs;
