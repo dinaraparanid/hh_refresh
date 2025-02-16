@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hh_refresh/core/presentation/theme/mod.dart';
 import 'package:hh_refresh/core/presentation/theme/theme_provider.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/mod.dart';
+import 'package:hh_refresh/l10n/app_localizations.dart';
 
-final class UntilText extends StatelessWidget {
-  const UntilText({super.key});
+final class ClockText extends StatelessWidget {
+  const ClockText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,7 @@ final class UntilText extends StatelessWidget {
           ),
 
           Text(
-            state.isTimerRunning
-              ? strings.main_until_timeout
-              : strings.main_time_is_up,
+            _clockSubtext(state: state, strings: strings),
             style: theme.typography.regular.copyWith(
               color: theme.colors.text,
               fontWeight: FontWeight.w700,
@@ -37,5 +36,14 @@ final class UntilText extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _clockSubtext({
+    required MainState state,
+    required AppLocalizations strings,
+  }) {
+    if (state.isTimerNeverLaunched) return strings.main_not_started;
+    if (state.isTimerRunning) return strings.main_until_timeout;
+    return strings.main_time_is_up;
   }
 }

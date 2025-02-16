@@ -48,10 +48,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get main_stop => 'Stop';
 
   @override
+  String get main_start_timer => 'Start timer';
+
+  @override
   String get main_restart_timer => 'Restart timer';
 
   @override
   String get main_until_timeout => 'Until timeout';
+
+  @override
+  String get main_not_started => 'Not started';
 
   @override
   String get main_time_is_up => 'Time is up';

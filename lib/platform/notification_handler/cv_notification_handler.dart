@@ -2,8 +2,9 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hh_refresh/l10n/app_localizations_ru.dart';
 
 @pragma('vm:entry-point')
-void onCVNotificationAction(NotificationResponse response) =>
-  _onNotificationActionImpl(response);
+void onCVNotificationAction(NotificationResponse response) {
+  // TODO handle response
+}
 
 void _onNotificationActionImpl(NotificationResponse response) {
   // TODO handle response
@@ -45,10 +46,13 @@ final class CVNotificationHandler {
 
   DarwinInitializationSettings get _darwinSettings =>
     DarwinInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
       notificationCategories: [
         DarwinNotificationCategory(
           _category,
-          actions: <DarwinNotificationAction>[
+          actions: [
             DarwinNotificationAction.plain(
               _actionOpen,
               _strings.main_open,
@@ -57,8 +61,10 @@ final class CVNotificationHandler {
             DarwinNotificationAction.plain(
               _actionRestart,
               _strings.main_restart_timer,
+              options: { DarwinNotificationActionOption.foreground },
             ),
           ],
+          options: { DarwinNotificationCategoryOption.hiddenPreviewShowTitle },
         ),
       ],
     );

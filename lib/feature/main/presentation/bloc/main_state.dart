@@ -7,6 +7,8 @@ part 'main_state.freezed.dart';
 
 @freezed
 abstract class MainState with _$MainState {
+  static const timestampNeverSet = -1;
+
   const factory MainState({
     int? nextTimestamp,
     int? currentTimestamp,
@@ -21,6 +23,9 @@ extension Properties on MainState {
     if (next == null || current == null) return false;
     return next > current;
   }
+
+  bool get isTimerNeverLaunched =>
+    nextTimestamp == MainState.timestampNeverSet;
 
   double get timerProgress {
     final next = nextTimestamp;

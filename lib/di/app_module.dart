@@ -11,12 +11,12 @@ final di = GetIt.instance;
 
 extension AppModule on GetIt {
   List<Type> registerAppModule() {
-    registerPlatformModule(); // platform-specific, not tested via unit test
     return [
       ...registerCoreModule(),
       ...registerRootModule(),
       ...registerOnboardingModule(),
       ...registerMainModule(),
+      ...registerPlatformModule(),
       provideSingleton<AppRouter>(() => AppRouter()),
     ];
   }

@@ -173,6 +173,12 @@ abstract class AppLocalizations {
   /// **'Stop'**
   String get main_stop;
 
+  /// No description provided for @main_start_timer.
+  ///
+  /// In en, this message translates to:
+  /// **'Start timer'**
+  String get main_start_timer;
+
   /// No description provided for @main_restart_timer.
   ///
   /// In en, this message translates to:
@@ -184,6 +190,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Until timeout'**
   String get main_until_timeout;
+
+  /// No description provided for @main_not_started.
+  ///
+  /// In en, this message translates to:
+  /// **'Not started'**
+  String get main_not_started;
 
   /// No description provided for @main_time_is_up.
   ///

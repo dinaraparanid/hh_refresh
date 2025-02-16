@@ -7,7 +7,7 @@ final class StopClick extends MainEvent {}
 final class RestartClick extends MainEvent {}
 
 final class ResetTimer extends MainEvent {
-  final int nextTimestamp;
+  final int? nextTimestamp;
   ResetTimer({required this.nextTimestamp});
 }
 

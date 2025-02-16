@@ -48,7 +48,9 @@ final class MainContent extends StatelessWidget {
               condition: state.isTimerRunning.not,
               builder: () => MainButton(
                 iconSvg: 'ic_clock',
-                text: strings.main_restart_timer,
+                text: state.isTimerNeverLaunched
+                  ? strings.main_start_timer
+                  : strings.main_restart_timer,
                 onPressed: () => onEvent(RestartClick()),
               ),
             ),

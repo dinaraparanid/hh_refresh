@@ -14,4 +14,7 @@ final class CVRepositoryImpl extends CVRepository {
 
   @override
   Future<void> storeCV({required CV cv}) => _store.storeCV(cv: cv);
+
+  @override
+  Future<void> updateCVPromotionTime() => _store.updateCVPromotionTime();
 }

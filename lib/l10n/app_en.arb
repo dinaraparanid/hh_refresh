@@ -15,8 +15,10 @@
 
   "main_open": "Open",
   "main_stop": "Stop",
+  "main_start_timer": "Start timer",
   "main_restart_timer": "Restart timer",
   "main_until_timeout": "Until timeout",
+  "main_not_started": "Not started",
   "main_time_is_up": "Time is up",
 
   "notification_cv_title": "Promote your CV"

@@ -15,8 +15,10 @@
 
   "main_open": "Перейти",
   "main_stop": "Остановить",
+  "main_start_timer": "Запустить таймер",
   "main_restart_timer": "Перезапустить таймер",
   "main_until_timeout": "До следующего подъема",
+  "main_not_started": "Не начат",
   "main_time_is_up": "Время вышло",
 
   "notification_cv_title": "Поднимите ваше резюме"

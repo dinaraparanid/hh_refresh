@@ -4,7 +4,7 @@ import 'package:hh_refresh/core/presentation/theme/theme_provider.dart';
 import 'package:hh_refresh/core/utils/functions/distinct_state.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/mod.dart';
 import 'package:hh_refresh/feature/main/presentation/widget/clock/clock_progress_painter.dart';
-import 'package:hh_refresh/feature/main/presentation/widget/clock/until_text.dart';
+import 'package:hh_refresh/feature/main/presentation/widget/clock/clock_text.dart';
 import 'package:hh_refresh/platform/work_manager/cv_work_manager.dart';
 
 final class Clock extends StatefulWidget {
@@ -64,7 +64,7 @@ final class _ClockState extends State<Clock> with SingleTickerProviderStateMixin
             ),
           ),
 
-          UntilText(),
+          ClockText(),
         ],
       ),
     );

@@ -48,10 +48,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get main_stop => 'Остановить';
 
   @override
+  String get main_start_timer => 'Запустить таймер';
+
+  @override
   String get main_restart_timer => 'Перезапустить таймер';
 
   @override
   String get main_until_timeout => 'До следующего подъема';
+
+  @override
+  String get main_not_started => 'Не начат';
 
   @override
   String get main_time_is_up => 'Время вышло';
