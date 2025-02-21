@@ -1,4 +1,3 @@
-import 'package:hh_refresh/core/utils/extensions/bool_ext.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 final class RequestNotificationPermissionUseCase {
@@ -8,17 +7,19 @@ final class RequestNotificationPermissionUseCase {
   }) async {
     bool handleStatus(PermissionStatus status) {
       switch (status) {
-        case PermissionStatus.denied: onDenied(); return false;
-        case PermissionStatus.granted: onReady(); return true;
-        case PermissionStatus.restricted: onDenied(); return false;
-        case PermissionStatus.limited: onDenied(); return false;
-        case PermissionStatus.permanentlyDenied: onDenied(); return false;
-        case PermissionStatus.provisional: onReady(); return true;
+        case PermissionStatus.denied: return false;
+        case PermissionStatus.granted: return true;
+        case PermissionStatus.restricted: return false;
+        case PermissionStatus.limited: return false;
+        case PermissionStatus.permanentlyDenied: return false;
+        case PermissionStatus.provisional: return true;
       }
     }
 
-    if (handleStatus(await Permission.backgroundRefresh.request())) {
-      handleStatus(await Permission.notification.request());
+    if (handleStatus(await Permission.notification.request())) {
+      onReady();
+    } else {
+      onDenied();
     }
   }
 }

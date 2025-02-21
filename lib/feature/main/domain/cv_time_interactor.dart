@@ -1,29 +1,27 @@
 import 'package:hh_refresh/core/domain/cv/repository/cv_repository.dart';
-import 'package:hh_refresh/platform/work_manager/cv_work_manager_factory.dart';
+import 'package:hh_refresh/platform/notification_handler/cv_notification_manager_factory.dart';
 
 final class CVTimeInteractor {
   final CVRepository _cvRepository;
-  final CVWorkManagerFactory _cvWorkManagerFactory;
+  final CVNotificationManagerFactory _cvNotificationManagerFactory;
+  late final _cvNotificationManager = _cvNotificationManagerFactory.create();
 
   CVTimeInteractor({
     required CVRepository cvRepository,
-    required CVWorkManagerFactory cvWorkManagerFactory,
+    required CVNotificationManagerFactory cvNotificationManagerFactory,
   }) : _cvRepository = cvRepository,
-    _cvWorkManagerFactory = cvWorkManagerFactory;
+    _cvNotificationManagerFactory = cvNotificationManagerFactory;
 
   Future<void> updateCVPromotionTime() =>
     _cvRepository.updateCVPromotionTime();
 
   Future<void> launchTimerBackgroundTask() async {
-    final workManager = _cvWorkManagerFactory.create();
-    await workManager.cancelPromoteCVTask();
-    await workManager.registerPromoteCVTask();
+    await _cvNotificationManager.cancelCVNotification();
+    await _cvNotificationManager.showCVNotification();
   }
 
-  Future<void> cancelTimerBackgroundTask() async {
-    final workManager = _cvWorkManagerFactory.create();
-    await workManager.cancelPromoteCVTask();
-  }
+  Future<void> cancelTimerBackgroundTask() =>
+    _cvNotificationManager.cancelCVNotification();
 
   Stream<int?> get nextTimestampChanges =>
     _cvRepository

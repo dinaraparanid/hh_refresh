@@ -1,5 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:hh_refresh/feature/main/domain/clock_config.dart';
 import 'package:hh_refresh/l10n/app_localizations_ru.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 @pragma('vm:entry-point')
 void onCVNotificationAction(NotificationResponse response) {
@@ -10,7 +12,7 @@ void _onNotificationActionImpl(NotificationResponse response) {
   // TODO handle response
 }
 
-final class CVNotificationHandler {
+final class CVNotificationManager {
   static const _notificationId = 0;
   static const _notificationChannelId = 'promote_cv';
   static const _notificationChannelName = 'Promote CV';
@@ -21,7 +23,7 @@ final class CVNotificationHandler {
   final _plugin = FlutterLocalNotificationsPlugin();
   final _strings = AppLocalizationsRu();
 
-  CVNotificationHandler() {
+  CVNotificationManager() {
     _plugin.initialize(
       InitializationSettings(
         android: AndroidInitializationSettings('ic_launcher'),
@@ -33,16 +35,28 @@ final class CVNotificationHandler {
     );
   }
 
-  Future<void> showCVNotification() => _plugin.show(
-    _notificationId,
-    _strings.notification_cv_title,
-    null,
-    NotificationDetails(
-      android: _androidDetails,
-      iOS: _darwinDetails,
-      macOS: _darwinDetails,
-    ),
-  );
+  Future<void> showCVNotification() async {
+    final scheduledTime = tz.TZDateTime.from(
+      DateTime.now().add(ClockConfig.fullDuration),
+      tz.local,
+    );
+
+    await _plugin.zonedSchedule(
+      _notificationId,
+      _strings.notification_cv_title,
+      null,
+      scheduledTime,
+      NotificationDetails(
+        android: _androidDetails,
+        iOS: _darwinDetails,
+        macOS: _darwinDetails,
+      ),
+      androidScheduleMode: AndroidScheduleMode.exact,
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+    );
+  }
+
+  Future<void> cancelCVNotification() => _plugin.cancel(_notificationId);
 
   DarwinInitializationSettings get _darwinSettings =>
     DarwinInitializationSettings(

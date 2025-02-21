@@ -11,7 +11,7 @@ extension MainModule on GetIt {
     provideSingleton<CVTimeInteractor>(
       () => CVTimeInteractor(
         cvRepository: this(),
-        cvWorkManagerFactory: this(),
+        cvNotificationManagerFactory: this(),
       ),
     ),
 

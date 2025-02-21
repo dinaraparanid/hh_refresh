@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hh_refresh/core/presentation/theme/theme_provider.dart';
 import 'package:hh_refresh/core/utils/functions/distinct_state.dart';
+import 'package:hh_refresh/feature/main/domain/clock_config.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/mod.dart';
 import 'package:hh_refresh/feature/main/presentation/widget/clock/clock_progress_painter.dart';
 import 'package:hh_refresh/feature/main/presentation/widget/clock/clock_text.dart';
-import 'package:hh_refresh/platform/work_manager/cv_work_manager.dart';
 
 final class Clock extends StatefulWidget {
   const Clock({super.key});
@@ -27,7 +27,7 @@ final class _ClockState extends State<Clock> with SingleTickerProviderStateMixin
 
     _progressController = AnimationController(
       vsync: this,
-      duration: CVWorkManager.fullDuration,
+      duration: ClockConfig.fullDuration,
     );
 
     _progressTween = Tween(begin: 0, end: 1);

@@ -5,7 +5,6 @@ import 'package:hh_refresh/feature/main/domain/cv_time_interactor.dart';
 import 'package:hh_refresh/feature/main/domain/timer_controller.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/main_event.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/main_state.dart';
-import 'package:hh_refresh/platform/notification_handler/cv_notification_handler.dart';
 
 final class MainBloc extends Bloc<MainEvent, MainState> {
   MainBloc({

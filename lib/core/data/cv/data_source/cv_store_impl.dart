@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:hh_refresh/core/domain/cv/data_store/cv_store.dart';
 import 'package:hh_refresh/core/domain/cv/entity/cv.dart';
 import 'package:hh_refresh/core/utils/functions/common.dart';
-import 'package:hh_refresh/platform/work_manager/cv_work_manager.dart';
+import 'package:hh_refresh/feature/main/domain/clock_config.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 
 final class CVStoreImpl with CVStore {
@@ -29,7 +29,7 @@ final class CVStoreImpl with CVStore {
     final prevCV = jsonString?.let((s) => CV.fromJson(jsonDecode(s)));
 
     final nextTimestamp = DateTime.now()
-      .add(CVWorkManager.fullDuration)
+      .add(ClockConfig.fullDuration)
       .millisecondsSinceEpoch;
 
     final nextCV = prevCV
