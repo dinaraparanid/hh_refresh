@@ -26,7 +26,7 @@ final class CVNotificationManager {
   CVNotificationManager() {
     _plugin.initialize(
       InitializationSettings(
-        android: AndroidInitializationSettings('ic_launcher'),
+        android: AndroidInitializationSettings('notification_icon'),
         iOS: _darwinSettings,
         macOS: _darwinSettings,
       ),

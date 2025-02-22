@@ -4,4 +4,5 @@ mixin CVStore {
   Stream<CV?> get cvChanges;
   Future<void> storeCV({required CV cv});
   Future<void> updateCVPromotionTime();
+  Future<void> resetCVPromotionTime();
 }

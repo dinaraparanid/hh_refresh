@@ -1,3 +1,4 @@
+import 'package:hh_refresh/core/utils/extensions/bool_ext.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 final class RequestNotificationPermissionUseCase {
@@ -16,10 +17,16 @@ final class RequestNotificationPermissionUseCase {
       }
     }
 
-    if (handleStatus(await Permission.notification.request())) {
-      onReady();
-    } else {
+    if (handleStatus(await Permission.notification.request()).not) {
       onDenied();
+      return;
     }
+
+    if (handleStatus(await Permission.scheduleExactAlarm.request()).not) {
+      onDenied();
+      return;
+    }
+
+    onReady();
   }
 }

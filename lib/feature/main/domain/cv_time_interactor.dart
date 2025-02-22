@@ -20,8 +20,10 @@ final class CVTimeInteractor {
     await _cvNotificationManager.showCVNotification();
   }
 
-  Future<void> cancelTimerBackgroundTask() =>
-    _cvNotificationManager.cancelCVNotification();
+  Future<void> cancelTimerBackgroundTask() async {
+    await _cvNotificationManager.cancelCVNotification();
+    await _cvRepository.resetCVPromotionTime();
+  }
 
   Stream<int?> get nextTimestampChanges =>
     _cvRepository

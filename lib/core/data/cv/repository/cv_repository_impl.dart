@@ -17,4 +17,7 @@ final class CVRepositoryImpl extends CVRepository {
 
   @override
   Future<void> updateCVPromotionTime() => _store.updateCVPromotionTime();
+
+  @override
+  Future<void> resetCVPromotionTime() => _store.resetCVPromotionTime();
 }

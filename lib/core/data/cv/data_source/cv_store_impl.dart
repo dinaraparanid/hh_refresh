@@ -23,19 +23,30 @@ final class CVStoreImpl with CVStore {
       .setString(_keyCV, jsonEncode(cv.toJson()));
 
   @override
-  Future<void> updateCVPromotionTime() async {
-    final prefs = RxSharedPreferences.getInstance();
-    final jsonString = await prefs.getString(_keyCV);
-    final prevCV = jsonString?.let((s) => CV.fromJson(jsonDecode(s)));
-
+  Future<void> updateCVPromotionTime() => _updateCV(transform: (prevCV) {
     final nextTimestamp = DateTime.now()
       .add(ClockConfig.fullDuration)
       .millisecondsSinceEpoch;
 
-    final nextCV = prevCV
+    return prevCV
       ?.copyWith(promotionExpiresTimestamp: nextTimestamp)
       ?? CV(promotionExpiresTimestamp: nextTimestamp);
+  });
 
+  @override
+  Future<void> resetCVPromotionTime() => _updateCV(transform: (prevCV) {
+    final nextTimestamp = DateTime.now().millisecondsSinceEpoch;
+
+    return prevCV
+        ?.copyWith(promotionExpiresTimestamp: nextTimestamp)
+        ?? CV(promotionExpiresTimestamp: nextTimestamp);
+  });
+
+  Future<void> _updateCV({required CV Function(CV? prevCV) transform}) async {
+    final prefs = RxSharedPreferences.getInstance();
+    final jsonString = await prefs.getString(_keyCV);
+    final prevCV = jsonString?.let((s) => CV.fromJson(jsonDecode(s)));
+    final nextCV = transform(prevCV);
     await prefs.setString(_keyCV, jsonEncode(nextCV.toJson()));
   }
 }
