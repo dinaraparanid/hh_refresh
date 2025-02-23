@@ -19,3 +19,15 @@ final class UpdateCurrentTimestamp extends MainEvent {
 final class OnPause extends MainEvent {}
 
 final class OnResume extends MainEvent {}
+
+final class ChangeFailedToOpenBrowserDialogVisibility extends MainEvent {
+  final bool isVisible;
+  ChangeFailedToOpenBrowserDialogVisibility({required this.isVisible});
+}
+
+final class ChangeNotificationDeniedDialogVisibility extends MainEvent {
+  final bool isVisible;
+  ChangeNotificationDeniedDialogVisibility({required this.isVisible});
+}
+
+final class ShowAppSettings extends MainEvent {}

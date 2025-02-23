@@ -4,6 +4,7 @@
   "continue_": "Продолжить",
   "allow": "Разрешить",
   "deny": "Нет, спасибо",
+  "ok": "OK",
 
   "onboarding_scene_1_title": "Добро пожаловать в hh.refresh!",
   "onboarding_scene_1_description": "Это приложение помогает продвигать ваше резюме, напоминая, что срок подъема в поиске истек",
@@ -14,6 +15,7 @@
   "notifications_denied_dialog_description": "Разрешите использовать уведомления, чтобы приложение вовремя напоминало вам поднимать резюме",
 
   "main_open": "Перейти",
+  "main_failed_to_open_browser": "Не получилось открыть браузер",
   "main_stop": "Остановить",
   "main_start_timer": "Запустить таймер",
   "main_restart_timer": "Перезапустить таймер",

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hh_refresh/core/utils/functions/distinct_state.dart';
 import 'package:hh_refresh/feature/onboarding/child/scene2/presentation/bloc/mod.dart';
-import 'package:hh_refresh/feature/onboarding/child/scene2/presentation/widget/notifications_denied_dialog.dart';
+import 'package:hh_refresh/core/presentation/permission/notifications_denied_dialog.dart';
 import 'package:hh_refresh/feature/onboarding/child/scene2/presentation/widget/onboarding_scene_2_content.dart';
 
 final class OnboardingScene2 extends StatelessWidget {

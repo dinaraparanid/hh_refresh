@@ -51,7 +51,7 @@ final class CVNotificationManager {
         iOS: _darwinDetails,
         macOS: _darwinDetails,
       ),
-      androidScheduleMode: AndroidScheduleMode.exact,
+      androidScheduleMode: AndroidScheduleMode.alarmClock,
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
     );
   }

@@ -4,6 +4,7 @@
   "continue_": "Continue",
   "allow": "Allow",
   "deny": "Deny",
+  "ok": "OK",
 
   "onboarding_scene_1_title": "Welcome to hh.refresh!",
   "onboarding_scene_1_description": "This app helps to promote your CV by reminding you to bring it up in the search",
@@ -14,6 +15,7 @@
   "notifications_denied_dialog_description": "Allow notifications to be used so that the app reminds you to bring up your resume at the same time.",
 
   "main_open": "Open",
+  "main_failed_to_open_browser": "Failed to open browser",
   "main_stop": "Stop",
   "main_start_timer": "Start timer",
   "main_restart_timer": "Restart timer",

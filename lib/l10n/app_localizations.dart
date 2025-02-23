@@ -125,6 +125,12 @@ abstract class AppLocalizations {
   /// **'Deny'**
   String get deny;
 
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
   /// No description provided for @onboarding_scene_1_title.
   ///
   /// In en, this message translates to:
@@ -166,6 +172,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open'**
   String get main_open;
+
+  /// No description provided for @main_failed_to_open_browser.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to open browser'**
+  String get main_failed_to_open_browser;
 
   /// No description provided for @main_stop.
   ///

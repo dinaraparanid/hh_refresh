@@ -8,8 +8,8 @@ import 'package:hh_refresh/core/domain/onboarding/repository/onboarding_reposito
 extension OnboardingModule on GetIt {
   List<Type> registerOnboardingModule() => [
     provideSingleton<OnboardingStore>(() => OnboardingStoreImpl()),
-    provideSingleton<OnboardingRepository>(() =>
-        OnboardingRepositoryImpl(store: this()),
+    provideSingleton<OnboardingRepository>(
+      () => OnboardingRepositoryImpl(store: this()),
     ),
   ];
 }

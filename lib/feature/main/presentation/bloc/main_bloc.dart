@@ -1,19 +1,26 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hh_refresh/core/domain/permission/request_notification_persmission_use_case.dart';
 import 'package:hh_refresh/core/utils/functions/common.dart';
 import 'package:hh_refresh/core/utils/functions/time.dart';
 import 'package:hh_refresh/feature/main/domain/cv_time_interactor.dart';
+import 'package:hh_refresh/feature/main/domain/open_cv_in_browser_use_case.dart';
 import 'package:hh_refresh/feature/main/domain/timer_controller.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/main_event.dart';
 import 'package:hh_refresh/feature/main/presentation/bloc/main_state.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 final class MainBloc extends Bloc<MainEvent, MainState> {
   MainBloc({
     required TimerController timerController,
     required CVTimeInteractor cvTimeInteractor,
+    required OpenCVInBrowserUseCase openCVInBrowserUseCase,
+    required RequestNotificationPermissionUseCase requestNotificationPermissionUseCase,
   }) : super(MainState()) {
 
     on<WebClick>((event, emit) {
-
+      openCVInBrowserUseCase.execute(onFailure:
+        () => add(ChangeFailedToOpenBrowserDialogVisibility(isVisible: true)),
+      );
     });
 
     on<StopClick>((event, emit) {
@@ -22,7 +29,10 @@ final class MainBloc extends Bloc<MainEvent, MainState> {
     });
 
     on<RestartClick>((event, emit) =>
-      cvTimeInteractor.updateCVPromotionTime(),
+      requestNotificationPermissionUseCase.execute(
+        onDenied: () => add(ChangeNotificationDeniedDialogVisibility(isVisible: true)),
+        onReady: () => cvTimeInteractor.updateCVPromotionTime(),
+      )
     );
 
     on<UpdateCurrentTimestamp>((event, emit) =>
@@ -56,6 +66,19 @@ final class MainBloc extends Bloc<MainEvent, MainState> {
     on<OnResume>((event, emit) =>
       state.nextTimestamp?.let((ts) => add(ResetTimer(nextTimestamp: ts))),
     );
+
+    on<ChangeFailedToOpenBrowserDialogVisibility>((event, emit) =>
+      emit(state.copyWith(isFailedToOpenBrowserDialogShown: event.isVisible)),
+    );
+
+    on<ChangeNotificationDeniedDialogVisibility>((event, emit) =>
+      emit(state.copyWith(isNotificationDeniedShown: event.isVisible)),
+    );
+
+    on<ShowAppSettings>((event, emit) {
+      emit(state.copyWith(isNotificationDeniedShown: false));
+      openAppSettings();
+    });
 
     cvTimeInteractor
       .nextTimestampChanges

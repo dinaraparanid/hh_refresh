@@ -12,6 +12,8 @@ abstract class MainState with _$MainState {
   const factory MainState({
     int? nextTimestamp,
     int? currentTimestamp,
+    @Default(false) bool isFailedToOpenBrowserDialogShown,
+    @Default(false) bool isNotificationDeniedShown,
   }) = _MainState;
 }
 

@@ -24,6 +24,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deny => 'Deny';
 
   @override
+  String get ok => 'OK';
+
+  @override
   String get onboarding_scene_1_title => 'Welcome to hh.refresh!';
 
   @override
@@ -43,6 +46,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get main_open => 'Open';
+
+  @override
+  String get main_failed_to_open_browser => 'Failed to open browser';
 
   @override
   String get main_stop => 'Stop';

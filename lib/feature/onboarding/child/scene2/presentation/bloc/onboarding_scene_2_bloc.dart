@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hh_refresh/feature/onboarding/child/scene2/domain/request_notification_persmission_use_case.dart';
+import 'package:hh_refresh/core/domain/permission/request_notification_persmission_use_case.dart';
 import 'package:hh_refresh/feature/onboarding/child/scene2/presentation/bloc/onboarding_scene_2_event.dart';
 import 'package:hh_refresh/feature/onboarding/child/scene2/presentation/bloc/onboarding_scene_2_state.dart';
 import 'package:permission_handler/permission_handler.dart';
